@@ -45,3 +45,4 @@ class NumberGuessingGame(Game):
             return self.guess(int(form["number"]))
         return "Please enter a number."
     
+    
