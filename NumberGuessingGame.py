@@ -39,3 +39,9 @@ class NumberGuessingGame(Game):
             return "Too low! Try again."
         else:
             return "Too high! Try again."
+
+    def play_turn(self, form):
+        if form.get("number"):
+            return self.guess(int(form["number"]))
+        return "Please enter a number."
+    
