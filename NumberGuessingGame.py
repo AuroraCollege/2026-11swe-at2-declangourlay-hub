@@ -1,3 +1,5 @@
+import random
+
 class Game:
     def __init__(self):
         self.game_on = True
@@ -18,3 +20,22 @@ class NumberGuessingGame(Game):
         else:
             raise ValueError("Target must be between 1 and 50.")
 
+    def new_game(self):
+        self.set_target(random.randint(1, 50))
+        self.attempts = 0
+        self.game_on = True
+        return "New game started! Guess a number between 1 and 50."
+
+    def guess(self, number):
+        if not self.game_on:
+            return "Game over! Start a new game."
+
+        self.attempts += 1
+
+        if number == self.__target:
+            self.game_on = False
+            return f"Correct! The number was {self.__target}. You guessed it in {self.attempts} attempts."
+        elif number < self.__target:
+            return "Too low! Try again."
+        else:
+            return "Too high! Try again."
