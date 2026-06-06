@@ -11,3 +11,10 @@ class NumberGuessingGame(Game):
         self.__target = None
         self.attempts = 0
         self.new_game()
+
+    def set_target(self, value):
+        if 1 <= value <= 50:
+            self.__target = value
+        else:
+            raise ValueError("Target must be between 1 and 50.")
+
